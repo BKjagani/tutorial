@@ -1,10 +1,26 @@
+import { useNavigate } from "react-router-dom";
+import { postData } from "../server";
+import { useState } from "react";
 function Form() {
+    const navigate = useNavigate()
+    const [formData, setFormData] = useState({username : "", email : ""})
+   async function handleSubmit(e){
+      e.preventDefault()
+      await postData(formData)
+      setFormData({username : "", email : ""})
+      navigate('/')
+    }
+
+    function handleChange(e){
+        setFormData((preval) => ({...preval, [e.target.name] : e.target.value}))
+    }
   return (
     <div>
-      <div className="container">
+      <div className="container mt-5">
         <div className="row">
           <div className="col-5 m-auto">
-            <form action="">
+            
+            <form action="" onSubmit={handleSubmit}>
               <div className="input-group mb-3">
                 <input
                   type="text"
@@ -12,6 +28,9 @@ function Form() {
                   placeholder="Username"
                   aria-label="Username"
                   aria-describedby="basic-addon1"
+                  name="username"
+                  value={formData.value}
+                  onChange={handleChange}
                 />
               </div>
               <div className="input-group mb-3">
@@ -21,9 +40,13 @@ function Form() {
                   placeholder="Email"
                   aria-label="email"
                   aria-describedby="basic-addon1"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </div>
-              <button className="btn btn-success">Submit</button>
+              <button type="submit" className="btn btn-success">Submit</button>
+              <button className="btn btn-warning ms-3" onClick={() => navigate('/')}>Cancle</button>
             </form>
           </div>
         </div>
