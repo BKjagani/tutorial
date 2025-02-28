@@ -3,12 +3,30 @@ import axios from "axios";
 const API = "http://localhost:3003/users";
 
 async function getData() {
-  return await axios.get(API);
+  try {
+    return await axios.get(API);
+  } catch (error) {
+      console.log(error)
+  }
 }
 
 
 async function postData(obj){
+  try {
     await axios.post(API, obj)
+  } catch (error) {
+    console.log(error)
+  }
 }
 
-export { getData, postData };
+
+async function deleteData(id){
+  try {
+    // await axios.delete(`${API}/${id}`)
+    await axios.delete(`http://localhost:3003/users/${id}`)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export { getData, postData, deleteData };

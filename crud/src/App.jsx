@@ -1,6 +1,7 @@
 import Form from "./components/Form";
 import Table from "./components/Table";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           <Route path="/" element={<Table />} />
           <Route path="/form" element={<Form />} />
         </Routes>
+        <ToastContainer/>
       </BrowserRouter>
     </div>
   );
