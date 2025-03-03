@@ -1,19 +1,19 @@
 {
   "users": [
     {
-      "id": "534e",
       "username": "Bhargav",
-      "email": "bha@gmail.com"
+      "email": "bhargav@gmail.com",
+      "id": "534e"
     },
     {
-      "id": "d157",
-      "username": "Bhargav",
-      "email": "bha@gmail.com"
+      "username": "Bhargav123",
+      "email": "bha@gmail.com",
+      "id": "51df"
     },
     {
-      "id": "51df",
-      "username": "Bhargav",
-      "email": "bha@gmail.com"
+      "username": "jbk123",
+      "email": "bhargavjagani000@gmail.com",
+      "id": "6db3"
     }
   ]
 }

@@ -29,4 +29,13 @@ async function deleteData(id){
   }
 }
 
-export { getData, postData, deleteData };
+
+async function editData(id, obj) {
+    try {
+        await axios.put(`${API}/${id}`, obj)
+    } catch (error) {
+      console.log(error)
+    }
+}
+
+export { getData, postData, deleteData, editData };
