@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { getData, deleteData, editData } from "../server";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
 function Table() {
@@ -8,11 +8,16 @@ function Table() {
   const [formData, setFormData] = useState({username : "", email : ""})
   const [userData, setUserData] = useState([]);
   const [editId, setEditId] = useState("")
-  async function fetchData() {
-    const response = await getData();
-    setUserData(response.data);
-  }
-  fetchData();
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getData();
+      setUserData(response.data);
+      console.log(response)
+    }
+    fetchData();
+  }, [])
+   
 
   async function handleDelete(id) {
     await deleteData(id);
@@ -34,6 +39,7 @@ function Table() {
 
   return (
     <div>
+       <button className="btn btn-primary" onClick={() => navigate('/news')}>News</button>
       <div className="container mt-5">
         <div className="row">
           <div className="col-5 m-auto">
