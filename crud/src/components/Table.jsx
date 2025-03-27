@@ -42,7 +42,7 @@ function Table() {
        <button className="btn btn-primary" onClick={() => navigate('/news')}>News</button>
       <div className="container mt-5">
         <div className="row">
-          <div className="col-5 m-auto">
+          <div className="col-7 m-auto">
             <div className="btn btn-primary" onClick={() => navigate("/form")}>
               Add User
             </div>
